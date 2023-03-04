@@ -3,11 +3,6 @@ import { useState } from "react";
 import { useLocalStorage } from 'react-use';
 
 
-const load=()=>{
-
-   
-
-}
 
 const saveFile=({text,fileList, setFileList,fileName})=>{
 
@@ -112,7 +107,7 @@ const calcComponent=({text,setText,mode,setMode,fileList, setFileList,setFileNam
             marginLeft:"10px",marginRight:"10px",
           fontFamily: '"Fira code", "Fira Mono", monospace',
           fontSize: 10, 
-          height:"98vh",
+          height:"90vh",
           width:"98%"
         }}
       />)

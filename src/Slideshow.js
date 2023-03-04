@@ -73,8 +73,10 @@ const Slideshow = () => {
       <>
     <div className="buttons">
       <button onClick={handlePrev}>PREV</button>
+      <span>{(autoplayInterval/1000).toFixed(1)}S/CODE&nbsp; </span>
       <button onClick={handleNext}>NEXT</button>
       <span>{images[index]}</span>
+      
     </div>
     <div className="slides">
       
@@ -87,6 +89,15 @@ const Slideshow = () => {
           
           
 
+    </div>
+    <div className="buttons">
+      
+      <button onClick={()=>setAutoplayInterval(100)}>0.1S</button>
+      <button onClick={()=>setAutoplayInterval(200)}>0.2S</button>
+      <button onClick={()=>setAutoplayInterval(500)}>0.5S</button>
+      <button onClick={()=>setAutoplayInterval(1000)}>1.0S</button>
+      <button onClick={()=>setAutoplayInterval(5000)}>5.0S</button>
+     
     </div>
     </>
 
