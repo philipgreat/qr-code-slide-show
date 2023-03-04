@@ -29,9 +29,12 @@ const Slideshow = () => {
   `)
 
   const [images, setImages] = useState([]);
-  const [autoplayInterval,setAutoplayInterval]=useState(1000000)
+  const [autoplayInterval,setAutoplayInterval]=useState(1000)
   useEffect(()=>{
 
+    if(!text){
+      return;
+    }
     const codes=text.trim().split("\n");
     setImages(codes)
 
@@ -56,6 +59,41 @@ const Slideshow = () => {
   };
 
 
+  const slideShowView=()=>{
+
+
+
+    if(images.length ===0){
+
+      return <>Input some text on left side</>
+
+    }
+
+    return ( 
+      <>
+    <div className="buttons">
+      <button onClick={handlePrev}>PREV</button>
+      <button onClick={handleNext}>NEXT</button>
+      <span>{images[index]}</span>
+    </div>
+    <div className="slides">
+      
+         
+          <div>
+          {
+             images[index] && <QRCode renderAs="svg" value={images[index].trim()} size={470}/> 
+          }
+          </div>
+          
+          
+
+    </div>
+    </>
+
+  )
+
+  }
+
 
 
   return (
@@ -65,27 +103,14 @@ const Slideshow = () => {
     <QRTextEditor text={text} setText={setText}/>
 
   </div>
-  <div >    
   <div className="slideshow">
-      <div className="buttons">
-        <button onClick={handlePrev}>PREV</button>
-        <button onClick={handleNext}>NEXT</button>
-        <span>{images[index]}</span>
-      </div>
-      <div className="slides">
-        <TransitionGroup>
-          <CSSTransition key={index} timeout={500} classNames="slide">
-           
-            
-            
-            <QRCode renderAs="svg" value={images[index].trim()} size={470}/>
-            
-           
-          </CSSTransition>
-        </TransitionGroup>
-      </div>
+    {slideShowView()}
+  </div>
+  <div >  
 
-    </div>
+
+
+
   
   </div>
 </SplitPane>)
@@ -112,5 +137,10 @@ return (
   );
 
 
+
+            <TransitionGroup>
+        <CSSTransition key={index} timeout={500} classNames="slide">
+        </CSSTransition>
+      </TransitionGroup>
 
 */

@@ -130,7 +130,7 @@ const QRTextEditor = ({text,setText}) => {
          
         <div style={{width:"100%",marginBottom:"10px",marginTop:"10px"}}>
 
-            <label for='filename'>FILE NAME:</label>
+            <label htmlFor='filename'>FILE NAME:</label>
             <input id={'filename'} style={{width:"50%",marginLeft:"10px",marginRight:"10px"}}
             
             onFocus={()=>setMode("SHOW FILE")}
